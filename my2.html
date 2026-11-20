@@ -1,0 +1,835 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sruti Maharana | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b0715;
+            color: white;
+            overflow-x: hidden;
+        }
+        .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #b76cff;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+        :root {
+            --purple: #b76cff;
+            --light: #d9a8ff;
+            --card: #191128;
+        }
+
+        /* NAVBAR */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11,7,21,0.95);
+            z-index: 1000;
+            border-bottom: 1px solid #33204b;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: var(--purple);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin-left: 22px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--purple);
+        }
+
+        .menu {
+            display: none;
+            font-size: 27px;
+            cursor: pointer;
+        }
+
+        /* HOME */
+
+        .home {
+            min-height: 100vh;
+            padding: 130px 10% 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .home-content {
+            max-width: 650px;
+        }
+
+        .home-content h4 {
+            color: var(--light);
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .home-content h1 {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .home-content h1 span {
+            color: var(--purple);
+        }
+
+        .home-content h2 {
+            font-size: 25px;
+            color: #d4b5f1;
+            margin-bottom: 20px;
+        }
+
+        .home-content p {
+            color: #b9aec8;
+            line-height: 1.9;
+            margin-bottom: 28px;
+        }
+
+        .typing {
+            color: var(--purple);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 30px;
+            background: var(--purple);
+            color: #170b23;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 25px var(--purple);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--purple);
+            color: white;
+        }
+
+        /* PROFILE IMAGE */
+
+        .profile-box {
+            width: 300px;
+            height: 300px;
+            min-width: 250px;
+            border-radius: 50%;
+            padding: 8px;
+            background: linear-gradient(135deg, #8e3cff, #e0aaff);
+            box-shadow: 0 0 35px #9a43e8;
+        }
+
+        .profile-box img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #170c25;
+        }
+
+        /* COMMON SECTION */
+
+        section:not(.home) {
+            padding: 90px 10%;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 45px;
+        }
+
+        .heading span {
+            color: var(--purple);
+        }
+
+        /* ABOUT */
+
+        .about-box {
+            background: var(--card);
+            padding: 35px;
+            border: 1px solid #392451;
+            border-radius: 20px;
+            line-height: 2;
+            color: #c8bed5;
+        }
+
+        /* EDUCATION */
+
+        .education-card {
+            background: var(--card);
+            padding: 30px;
+            border-left: 4px solid var(--purple);
+            border-radius: 12px;
+            line-height: 2;
+        }
+
+        .education-card h3 {
+            color: var(--light);
+        }
+
+        /* SKILLS */
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card);
+            padding: 25px 15px;
+            text-align: center;
+            border: 1px solid #392451;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 20px #873ac5;
+        }
+
+        .skill-card h3 {
+            color: var(--light);
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: #b9aec8;
+            font-size: 13px;
+        }
+
+        /* INTERNSHIP AND PROJECTS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid #392451;
+            padding: 28px;
+            border-radius: 16px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--purple);
+        }
+
+        .card h3 {
+            color: var(--light);
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #b9aec8;
+            line-height: 1.8;
+        }
+
+        .tag {
+            display: inline-block;
+            color: var(--light);
+            background: #302044;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-top: 15px;
+            font-size: 12px;
+        }
+
+        /* CONTACT */
+
+        .contact-box {
+            background: var(--card);
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #392451;
+        }
+
+        .contact-box p {
+            margin: 18px;
+            color: #d4c6e3;
+        }
+
+        .contact-box a {
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #140c20;
+            padding: 25px;
+            text-align: center;
+            color: #a99bb8;
+        }
+
+        /* ANIMATION */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: 0.8s;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* MOBILE RESPONSIVE */
+
+        @media(max-width: 900px) {
+            .home {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .profile-box {
+                width: 230px;
+                height: 230px;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 650px) {
+            header {
+                padding: 18px 6%;
+            }
+
+            .menu {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                background: #170d25;
+                padding: 20px;
+            }
+
+            nav.active {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            .home-content h1 {
+                font-size: 37px;
+            }
+
+            .home-content h2 {
+                font-size: 19px;
+            }
+
+            .heading {
+                font-size: 29px;
+            }
+
+            .skills-container,
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            section:not(.home) {
+                padding: 70px 7%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+    <div class="logo">
+    <img src="logo.png" alt="Sruti Logo">
+    <span>Sruti</span>
+</div>
+
+    <div class="menu" onclick="toggleMenu()">☰</div>
+
+    <nav id="navbar">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#education" onclick="closeMenu()">Education</a>
+        <a href="#skills" onclick="closeMenu()">Skills</a>
+        <a href="#internships" onclick="closeMenu()">Internships</a>
+        <a href="#projects" onclick="closeMenu()">Projects</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+    </nav>
+</header>
+
+<!-- HOME SECTION -->
+
+<section class="home" id="home">
+
+    <div class="home-content">
+
+        <h4>WELCOME TO MY PORTFOLIO</h4>
+
+        <h1>Hi, I'm <span>Sruti Maharana</span></h1>
+
+        <h2>
+            I'm an Aspiring
+            <span class="typing" id="typing"></span>
+        </h2>
+
+        <p>
+            I am a passionate Computer Science Engineering
+            student who loves exploring technology,
+            learning programming and creating innovative
+            digital solutions.
+
+            I am interested in Data Analytics,
+            Web Development and Software Development.
+        </p>
+
+        <a href="#about" class="btn">Explore More</a>
+
+        <a href="resume.pdf" class="btn btn-outline"
+           download>Download Resume</a>
+
+    </div>
+
+    <div class="profile-box">
+        <img src="profile.jpg"
+             alt="Sruti Maharana Profile Photo">
+    </div>
+
+</section>
+
+<!-- ABOUT SECTION -->
+
+<section id="about" class="reveal">
+
+    <h2 class="heading">About <span>Me</span></h2>
+
+    <div class="about-box">
+
+        <p>
+            Hello! I am Sruti Maharana, a third-year
+            BTech Computer Science and Engineering student
+            at Gandhi Academy of Technology and Engineering.
+
+            I enjoy learning new technologies and improving
+            my technical and problem-solving skills.
+
+            My areas of interest include Python programming,
+            Java, Web Development, Data Analytics and
+            Software Development.
+
+            I believe in continuous learning, practical
+            experience and building projects that solve
+            real-world problems.
+
+            My goal is to become a skilled technology
+            professional and build a successful career
+            in the IT industry.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- EDUCATION -->
+
+<section id="education" class="reveal">
+
+    <h2 class="heading">My <span>Education</span></h2>
+
+    <div class="education-card">
+
+        <h3>Bachelor of Technology (BTech)</h3>
+
+        <p>Computer Science and Engineering</p>
+
+        <p>Gandhi Academy of Technology and Engineering</p>
+
+        <p>Expected Graduation: 2028</p>
+
+    </div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills" class="reveal">
+
+    <h2 class="heading">Technical <span>Skills</span></h2>
+
+    <div class="skills-container">
+
+        <div class="skill-card">
+            <h3>Python</h3>
+            <p>Programming & Basics</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Java</h3>
+            <p>OOP & Programming</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>HTML</h3>
+            <p>Web Structure</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>CSS</h3>
+            <p>Web Designing</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>JavaScript</h3>
+            <p>Web Interactivity</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>React</h3>
+            <p>Frontend Development</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>SQL</h3>
+            <p>Database Basics</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Excel</h3>
+            <p>Data Analysis</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Power BI</h3>
+            <p>Data Visualization</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Pandas</h3>
+            <p>Data Analysis</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>NumPy</h3>
+            <p>Numerical Computing</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>GitHub</h3>
+            <p>Project Management</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- INTERNSHIPS -->
+
+<section id="internships" class="reveal">
+
+    <h2 class="heading">Internship <span>Experience</span></h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Future Interns</h3>
+            <p>
+                Data Science and Analytics internship.
+                Interested in working on practical data
+                analysis and dashboard projects.
+            </p>
+            <span class="tag">Data Analytics</span>
+        </div>
+
+        <div class="card">
+            <h3>InAmigos Foundation</h3>
+            <p>
+                NGO data collection and research-related
+                internship activities.
+            </p>
+            <span class="tag">Data Collection</span>
+        </div>
+
+        <div class="card">
+            <h3>Continuous Learning</h3>
+            <p>
+                Improving my programming, analytical
+                thinking and technical knowledge through
+                practical learning.
+            </p>
+            <span class="tag">Skill Development</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects" class="reveal">
+
+    <h2 class="heading">My <span>Projects</span></h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Personal Portfolio</h3>
+            <p>
+                A responsive personal portfolio website
+                created using HTML, CSS and JavaScript.
+            </p>
+            <span class="tag">HTML + CSS + JS</span>
+        </div>
+
+        <div class="card">
+            <h3>Superstore Sales Analysis</h3>
+            <p>
+                A data analysis project focused on
+                understanding sales, profit and
+                business performance.
+            </p>
+            <span class="tag">Excel + Data Analytics</span>
+        </div>
+
+        <div class="card">
+            <h3>Python Mini Projects</h3>
+            <p>
+                Small programming projects to practice
+                Python concepts and improve
+                problem-solving skills.
+            </p>
+            <span class="tag">Python</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CERTIFICATIONS -->
+
+<section id="certificates" class="reveal">
+
+    <h2 class="heading">My <span>Certifications</span></h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Java Full Stack</h3>
+            <p>BI Java Full Stack certification.</p>
+        </div>
+
+        <div class="card">
+            <h3>AWS Cloud Practitioner</h3>
+            <p>AWS Cloud Practitioner certification.</p>
+        </div>
+
+        <div class="card">
+            <h3>Web Development</h3>
+            <p>Web Development certification.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="reveal">
+
+    <h2 class="heading">Contact <span>Me</span></h2>
+
+    <div class="contact-box">
+
+        <h3>Let's Connect! 💜</h3>
+
+        <p>
+            Interested in opportunities, internships
+            and collaborations.
+        </p>
+
+        <p>
+            Email:
+            <a href="mailto:yourmail@gmail.com">
+                srutimaharana808@gmail.com
+            </a>
+        </p>
+
+        <p>
+            LinkedIn:
+            <a href="https://www.linkedin.com/in/sruti-maharana-4a8533363?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+               target="_blank">
+                Visit My LinkedIn
+            </a>
+        </p>
+
+        <p>
+            GitHub:
+            <a href="https://github.com/"
+               target="_blank">
+                Visit My GitHub
+            </a>
+        </p>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>© 2026 Sruti Maharana</p>
+
+    <p>Designed with 💜 and passion.</p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+    // Mobile menu
+
+    function toggleMenu() {
+        document.getElementById("navbar")
+        .classList.toggle("active");
+    }
+
+    function closeMenu() {
+        document.getElementById("navbar")
+        .classList.remove("active");
+    }
+
+    // Typing animation
+
+    const words = [
+        "Developer",
+        "Data Analyst",
+        "Programmer",
+        "Tech Enthusiast"
+    ];
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeEffect() {
+
+        let currentWord = words[wordIndex];
+
+        document.getElementById("typing").textContent =
+            currentWord.substring(0, charIndex);
+
+        if (!deleting) {
+            charIndex++;
+
+            if (charIndex > currentWord.length) {
+                deleting = true;
+                setTimeout(typeEffect, 1000);
+                return;
+            }
+
+        } else {
+            charIndex--;
+
+            if (charIndex < 0) {
+                deleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                charIndex = 0;
+            }
+        }
+
+        setTimeout(typeEffect, deleting ? 70 : 120);
+    }
+
+    typeEffect();
+
+    // Scroll reveal animation
+
+    const observer = new IntersectionObserver(
+        function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    document.querySelectorAll(".reveal").forEach(
+        function(section) {
+            observer.observe(section);
+        }
+    );
+
+</script>
+
+</body>
+</html>
